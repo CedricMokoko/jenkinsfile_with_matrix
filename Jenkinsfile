@@ -21,7 +21,8 @@ pipeline{
         stages{
           stage('build'){
             steps{
-              echo "Build ... pour ${PLATEFORM} - ${BROWSER}"
+              sh 'echo "Build ... pour ${PLATEFORM} - ${BROWSER}" > my_first_artefact.txt'
+              archiveArtifacts(artifacts: '*.txt')
             }
           }
           stage('test'){
