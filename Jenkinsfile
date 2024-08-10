@@ -15,7 +15,7 @@ pipeline{
           }
           axis{
             name'BROWSER'
-            value 'firefox', 'microsoft', 'chrome'
+            values 'firefox', 'microsoft', 'chrome'
           }
         }
         stages{
