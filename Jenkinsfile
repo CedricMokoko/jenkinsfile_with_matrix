@@ -17,20 +17,19 @@ pipeline{
             name'BROWSER'
             value 'firefox', 'microsoft', 'chrome'
           }
-          stages{
-            stage('build'){
-              steps{
-                echo "Build ... pour ${PLATEFORM} - ${BROWSER}"
-              }
-            }
-
-            stage('test'){
-              steps{
-                echo "Test... pour ${PLATEFORM} - ${BROWSER}"
-              }
+        }
+        stages{
+          stage('build'){
+            steps{
+              echo "Build ... pour ${PLATEFORM} - ${BROWSER}"
             }
           }
-        }
+          stage('test'){
+            steps{
+              echo "Test... pour ${PLATEFORM} - ${BROWSER}"
+            }
+          }
+        }       
       }
     }
 
