@@ -7,12 +7,14 @@ pipeline{
 
   tools{
     gradle 'gradle8.10'   // 'gradle8.10' est le nom qu'on a donné au tool sur jenkins interface
+    nodejs 'nodejs22.6.0'
   }
 
   stages{
     stage('tools'){
       steps{
         sh 'gradle -v'
+        sh 'node -v'
       }
     }
     stage('application build and test'){
