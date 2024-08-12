@@ -5,7 +5,16 @@ pipeline{
     // parallelAlwaysFailFast()
   // }
 
+  tools{
+    gradle 'gradle8.10'   // 'gradle8.10' est le nom qu'on a donné au tool sur jenkins interface
+  }
+
   stages{
+    stage('tools'){
+      steps{
+        sh 'gradle -v'
+      }
+    }
     stage('application build and test'){
       matrix{
         axes{
@@ -21,8 +30,8 @@ pipeline{
         stages{
           stage('build'){
             steps{
-              sh 'echo "Build ... pour ${PLATEFORM} - ${BROWSER}" > my_first_artefact.txt'
-              archiveArtifacts(artifacts: '*.txt')
+              sh 'echo "Build ... pour ${PLATEFORM} - ${BROWSER}" > my_first_artefact.txt' //Ici on crée un file
+              archiveArtifacts(artifacts: '*.txt') //Ici on récupère le etoile point txt au premier niveau
             }
           }
           stage('test'){
